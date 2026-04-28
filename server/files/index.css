@@ -8,6 +8,7 @@ h1 {
 /* Constrain the page to the viewport */
 html, body {
   height: 100vh;
+  
 }
 
 /* Center the nav's header and list */
@@ -30,48 +31,125 @@ ul {
 }
 
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
+body{
+  display: flex;
+  flex-direction: column;
+}
+@media(min-width:768px){
+body{
+  display:grid;
+  grid-template-columns: 200 auto;
+  grid-template-rows: 100 auto 100;
+  grid-template-areas: 
+    "n h"
+    "n m"
+    "f f";
 
-
+    height:100vh;
+    margin:0;
+}
+main{
+  overflow-y:auto;
+}
+}
+  header{
+    grid-area: h;
+  }
+  nav {
+    grid-area: n;
+  }
+  main{
+    grid-area: m;
+  }
+  footer{
+    grid-area: f;
+  }
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
-
+header{
+  grid-area: h;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
+nav{
+  grid-area: n;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
 
+}
+nav button {
+  width:100%;
+}
 /* Task 3.3. Make the main element a Flexbox container */
 
-
+main{
+  grid-area:m;
+  display:flex;
+  flex-wrap: wrap;
+  gap:20px;
+  justify-content: center;
+  overflow-y: auto;;
+}
+main article{
+  flex: 0 1 300px;
+  display: flex;
+  flex-direction: column;
+  
+  ;
+}
 /* Task 3.4. Make the footer's ul a Flexbox container */
 
-
+footer{
+  grid-area: f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* From here on styling from exercise 1 */
-img {
-  border-radius: 12px;
-}
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
 
-article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
-  width: 384px;
-  margin: 8px;
-}
+        article {
+            background: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-a {
-  color: beige;
-}
+        img {
+            max-width: 200px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
 
-span {
-  margin-right: 4px;
-}
+        .genre {
+            background-color: #e0e7ff;
+            color: #4338ca;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
 
-.genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
-  font-weight: bold;
-}
+        .crew-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        strong {
+            color: #333;
+        }
